@@ -1,0 +1,129 @@
+====================================================================
+GUIA RESUMIDO: GIT & GITHUB - PRINCIPAIS CONCEITOS E COMANDOS
+====================================================================
+
+1. INTRODUÇÃO
+-------------
+* Git: Sistema de controle de versão distribuído executado localmente na máquina.
+  Permite rastrear o histórico de alterações no código e criar pontos de restauração.
+* GitHub: Plataforma na nuvem que hospeda repositórios Git remotos, facilitando
+  o compartilhamento, backup e trabalho colaborativo em equipe.
+
+
+2. CONFIGURAÇÃO INICIAL (feita uma vez na máquina)
+--------------------------------------------------
+* git config --global user.name "Seu Nome"
+  Define o nome de autor para todos os seus commits.
+
+* git config --global user.email "seu-email@dominio.com"
+  Define o e-mail associado aos seus commits (utilize o mesmo do GitHub).
+
+* git config --list
+  Lista as configurações ativas no Git.
+
+
+3. INICIANDO OU OBTENDO REPOSITÓRIOS
+------------------------------------
+* git init
+  Inicializa um novo repositório Git na pasta atual (cria a pasta oculta .git).
+
+* git clone <url-do-repositorio>
+  Baixa uma cópia completa de um repositório remoto para o computador local.
+
+
+4. CICLO DE TRABALHO BÁSICO (LOCAL)
+-----------------------------------
+Fluxo de estados: Working Directory -> Staging Area -> Repositório (.git)
+
+* git status
+  Mostra o estado atual: arquivos modificados, novos (untracked) ou prontos para commit.
+
+* git diff
+  Exibe as alterações detalhadas linha a linha que ainda não foram para a Staging Area.
+
+* git add <arquivo>
+  Adiciona um arquivo específico para a Staging Area (preparação).
+
+* git add .
+  Adiciona todas as alterações da pasta atual e subpastas para a Staging Area.
+
+* git commit -m "Mensagem descritiva"
+  Grava as alterações da Staging Area no histórico do repositório local.
+
+* git log
+  Exibe o histórico detalhado de commits (autor, data, hash, mensagem).
+
+* git log --oneline --graph --all
+  Mostra o histórico de forma resumida e visual em uma única linha por commit.
+
+
+5. RAMIFICAÇÕES (BRANCHES)
+--------------------------
+Branches permitem trabalhar em novas funcionalidades ou correções sem afetar o código principal.
+
+* git branch
+  Lista todas as branches locais e indica em qual você está.
+
+* git branch <nome-da-branch>
+  Cria uma nova branch com o nome informado.
+
+* git checkout <nome-da-branch>  (ou: git switch <nome-da-branch>)
+  Muda para a branch indicada.
+
+* git checkout -b <nome-da-branch>  (ou: git switch -c <nome-da-branch>)
+  Cria e já muda automaticamente para a nova branch.
+
+* git merge <nome-da-branch>
+  Mescla as alterações da branch especificada para a branch onde você está no momento.
+
+* git branch -d <nome-da-branch>
+  Exclui a branch local indicada (após já ter sido mesclada).
+
+
+6. INTEGRAÇÃO COM REPOSITÓRIO REMOTO (GITHUB)
+---------------------------------------------
+* git remote add origin <url-do-repositorio>
+  Vincula o repositório local a um repositório remoto sob o apelido "origin".
+
+* git remote -v
+  Lista os endereços remotos configurados (leitura e escrita).
+
+* git push -u origin main (ou master)
+  Envia os commits locais para o GitHub e define o rastreamento padrão (-u).
+
+* git push
+  Envia os commits locais para a branch remota já rastreada.
+
+* git fetch
+  Baixa as novidades do repositório remoto sem mesclar automaticamente no seu código.
+
+* git pull
+  Baixa as atualizações do repositório remoto e já aplica o merge no seu branch atual.
+
+
+7. DESFAZENDO ALTERAÇÕES E GUARDANDO TRABALHOS
+----------------------------------------------
+* git restore <arquivo>
+  Descarta alterações não salvas no arquivo, voltando ao último commit.
+
+* git restore --staged <arquivo>
+  Tira um arquivo da Staging Area sem apagar suas alterações no código.
+
+* git reset HEAD~1
+  Desfaz o último commit mantendo as alterações nos arquivos locais.
+
+* git stash
+  Guarda temporariamente alterações não comitadas para limpar a árvore de trabalho.
+
+* git stash pop
+  Recupera as alterações guardadas anteriormente no stash.
+
+
+8. PRINCIPAIS CONCEITOS DO GITHUB
+---------------------------------
+* Pull Request (PR): Solicitação formal para revisar e incorporar alterações de
+  uma branch/fork para a branch principal do projeto.
+* Fork: Cópia independente de um repositório de outro usuário na sua conta do GitHub.
+* Issues: Rastreador de bugs, sugestões e tarefas integrado ao repositório.
+* README.md: Arquivo principal de documentação que descreve o projeto na página inicial.
+====================================================================
